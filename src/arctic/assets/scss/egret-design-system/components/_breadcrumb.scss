@@ -1,0 +1,49 @@
+.breadcrumb {
+  background-color: $breadcrumb-bg;
+  .breadcrumb-item+.breadcrumb-item::before {
+    content: $breadcrumb-divider;
+  }
+}
+.ul-breadcrumb {
+  display: flex;
+  .ul-breadcrumb-items {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    .breadcrumb-home {
+      margin-right: .5rem;
+      a {
+        display: flex;
+      }
+      i {
+        font-size: rem(20px);
+        color: $text-muted-color;
+        @include hover {
+          color: $link-hover-color;
+        }
+      }
+    }
+    .breadcrumb-item {
+      a {
+        color: $text-muted-color;
+        display: inline-block;
+        @include hover {
+          color: $link-hover-color;
+        }
+      }
+      &::before {
+        padding: 0;
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        content: " ";
+        vertical-align: middle;
+        background: $text-muted-color;
+        margin-right: .5rem;
+      }
+    }
+  }
+}

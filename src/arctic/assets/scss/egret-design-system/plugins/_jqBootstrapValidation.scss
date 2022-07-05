@@ -1,0 +1,10 @@
+.help-block{
+  ul{
+    padding: 0 !important;
+    margin-top: 5px;
+    color: $danger;
+    li{
+      list-style: none;
+    }
+  }
+}

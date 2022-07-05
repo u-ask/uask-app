@@ -1,0 +1,32 @@
+.bootstrap-timepicker-widget table td input {
+ width: 25px;
+ margin: 0;
+ text-align: center;
+ border: none;
+}
+.bootstrap-timepicker-widget table td input:focus{
+ outline: none;
+}
+
+.bootstrap-timepicker-widget table td a {
+  border: 1px transparent solid;
+  width: 100%;
+  display: inline-block;
+  margin: 0;
+  padding: 2px 0;
+  outline: 0;
+  color:$gray-400;
+}
+.bootstrap-timepicker-widget table td a:hover {
+  background-color: $primary;
+  opacity: 0.7;
+  color:$white;
+}
+.modal-header, .modal-footer{
+ display: none;
+}
+// .bootstrap-timepicker-widget {
+//  top: 276px;
+//  left: 382px !important;
+//  display: block;
+// }

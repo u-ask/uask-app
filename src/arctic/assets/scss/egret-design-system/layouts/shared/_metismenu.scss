@@ -1,0 +1,15 @@
+.metismenu .has-arrow:after {
+  border-width: 1px 0 0 1px;
+  width: 6px;
+  height: 6px;
+}
+.app-admin-wrap-layout-1.sidebar-full {
+  .metismenu .has-arrow:after {
+    right: 1.5rem;
+  }
+}
+.app-admin-wrap-layout-3.sidebar-full {
+  .metismenu .has-arrow:after {
+    right: 1rem;
+  }
+}

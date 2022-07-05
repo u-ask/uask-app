@@ -1,0 +1,25 @@
+// datepicker 
+.gj-picker-md{
+  color: $body-color;
+  border: 0;
+  box-shadow: $shadow-6dp;
+  border-radius: $border-radius;
+  padding: 8px 12px;
+  table tr td.selected.gj-cursor-pointer div{
+    background-color: $primary;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    box-shadow:$shadow-2dp;
+  }
+  [role="header"],[role="body"] [role="arrow"],[role="switch"],.arrow-begin {
+    background: $primary; 
+  }
+  .arrow-end{
+    border-color: $primary;
+  }
+  [role="footer"] button.gj-button-md{
+    color: $primary;
+  }
+  
+}

@@ -1,0 +1,183 @@
+.sidebar-panel {
+  .side-nav {
+    .icon-menu-title,
+    .main-menu-title {
+      // color: $grey-400 !important;
+      font-size: 11px;
+      padding: 16px 0 16px 24px;
+      display: block;
+      font-weight: 500;
+      letter-spacing: .5px;
+    }
+    .icon-menu {
+      .icon-menu-item {
+        padding: 0 16px;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        a {
+          width: 60px;
+          color: $white;
+          i {
+          }
+        }
+      }
+    }
+
+    .main-menu {
+      .main-menu-title {
+      }
+      ul {
+        padding: 0;
+        li {
+          list-style: none;
+          a {
+            display: flex;
+            align-items: center;
+            height: 48px;
+            padding: 0px 24px;
+            font-size: 13px;
+            .nav-icon {
+              margin-right: 15px;
+              font-size: 16px !important;
+            }
+            .item-name {
+              text-transform: uppercase;
+            }
+            .spacer {
+              margin: auto;
+            }
+            &:hover {
+              text-decoration: none;
+            }
+          }
+          &.dropdown {
+            > .sub-menu {
+              max-height: 0;
+              overflow: hidden;
+              transition: all 0.4s ease-in;
+              a {
+                height: 44px;
+                padding-left: 50px;
+              }
+            }
+            &.open {
+              > .sub-menu {
+                max-height: 1000px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // metisMenu
+  ul.metismenu {
+    min-width: $layout1-sidebar-full-width;
+    li ul {
+      // Second level
+      li {
+        a {
+          position: relative;
+          padding: 0 16px 0 36px !important;
+          
+          i.nav-icon {
+            margin-right: 10px !important;
+          }
+          i.bullet-icon {
+            display: inline-block;
+            height: 4px;
+            width: 4px;
+            border-radius: 4px;
+            margin-left: 4px;
+            margin-right: 14px;
+          }
+        }
+        // Third level
+        li a {
+          padding: 0 16px 0 42px !important;
+        }
+      }
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   width: 100%;
+      //   height: 2px;
+      //   z-index: 3;
+      //   background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), transparent);
+      // }
+      // &::after {
+      //   content: "";
+      //   position: absolute;
+      //   width: 100%;
+      //   height: 2px;
+      //   z-index: 3;
+      //   background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), transparent);
+      // }
+    }
+  }
+  //   child nav
+  .sidebar-nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .sidebar-nav .metismenu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .sidebar-nav .metismenu li:last-child {
+    margin-bottom: 5px;
+  }
+
+  .sidebar-nav .metismenu > li {
+    /*-webkit-box-flex: 1;
+        -ms-flex: 1 1 0%;
+        flex: 1 1 0%;*/
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: relative;
+  }
+  .sidebar-nav .metismenu a {
+    position: relative;
+    display: block;
+    padding: 13px 15px;
+    color: $gray-300;
+    outline-width: 0;
+    transition: all 0.3s ease-out;
+  }
+
+  .sidebar-nav .metismenu ul a {
+    padding: 10px 15px 10px 30px;
+  }
+
+  .sidebar-nav .metismenu ul ul a {
+    padding: 10px 15px 10px 45px;
+  }
+
+  .sidebar-nav .metismenu a:hover,
+  // .sidebar-nav .metismenu a:focus,
+  .sidebar-nav .metismenu .mm-active > a {
+    // color: #f8f9fa;
+    text-decoration: none;
+    // background: rgba(0, 0, 1, 0.2);
+  }
+  .sidebar-nav .metismenu a:hover {
+    .nav-icon, &.has-arrow:after {
+      // color: $primary;
+    }
+  }
+}

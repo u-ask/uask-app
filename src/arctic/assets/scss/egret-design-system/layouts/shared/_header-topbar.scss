@@ -1,0 +1,38 @@
+.ul-header-topbar{
+  display: flex;
+  align-items: center;
+  transition: $transition-base;
+  
+  @media (max-width:1024px) {
+    width: 100%;
+    margin-top: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 50px;
+    z-index: $z-index-popup;
+    box-shadow: $shadow-2dp;
+    background-color: $card-bg;
+    &.open{
+      margin-top: 60px;
+    }
+  }
+}
+.ul-mobile-top-header{
+  position: relative;
+  height: 60px;
+  display: none;
+  padding: 0 1.5rem;
+  align-items: center;
+  z-index: $z-index-dialog;
+  .ul-brand-mobile{
+    width: auto;
+    height: 30px;
+  }
+  @media (max-width:1024px) {
+    display: flex;
+    position: fixed;
+    width: 100%;
+  }
+}
+

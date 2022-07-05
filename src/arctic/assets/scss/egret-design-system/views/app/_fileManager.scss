@@ -1,0 +1,17 @@
+.eg-filemanager {
+ background-color: #fff;
+}
+.filemanager-content {
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  
+}
+
+.apps-wrapper {
+  &.--filemanager{
+    .nested-sidebar-toggle{
+      @media (min-width: 959px) {
+        display: none;
+      }
+    }
+  }
+}

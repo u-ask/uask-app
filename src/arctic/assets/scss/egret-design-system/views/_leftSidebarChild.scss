@@ -1,0 +1,9 @@
+.page-layout {
+  position: relative;
+  overflow: hidden;
+  .header-bg {
+    background-image: url("/assets/images/home-bg-black.png");
+    height: 200px;
+    position: absolute;
+  }
+}

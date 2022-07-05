@@ -1,0 +1,57 @@
+.welcome-card-image img{
+  @media (max-width: 767px){
+    display: none;
+  }
+}
+
+.ul-reminder-action{
+  button{
+    i{
+      font-size: 1.5rem;
+    }
+  }
+}
+// .rectangle-box{
+//   height: 40px;
+//   width: 40px;
+//   min-width: 40px;
+//   background-color: hsla(0,0%,100%,.1);
+//   border-radius: 8px;
+//   overflow: hidden;
+// }
+.borderless td, .borderless th {
+  border: none;
+}
+////////////////////////////////////
+.welcome-card{
+  padding: 36px 50px!important;
+  .welcome-detail{
+    color:$gray-300;
+  }
+  .welcome-card-image {
+    margin-top: -75px
+  }
+}
+
+
+.grid-button{
+  button{
+    i{
+      font-size: $font-size-button-semi-md;
+    }
+  }
+}
+.ul-reminder-item{
+  padding: 8px;
+  transition: all 300ms ease;
+  border-radius:8px;
+}
+.ul-reminder-item:hover{
+  background-color: $grey-200;
+  cursor: pointer;
+  transition: all 300ms ease;
+  padding-left: 16px;
+  
+}
+
+

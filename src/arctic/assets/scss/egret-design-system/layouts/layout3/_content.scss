@@ -1,0 +1,28 @@
+.app-admin-wrap-layout-3{
+  width: calc(100% - 300px);
+  margin-left: 300px;
+  transition: $transition-base;
+  &.close-secondary-sidebar{
+    // width: calc(100% - 300px);
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
+  }
+  
+  .main-content-wrap{
+
+  }
+  @media (min-width: 1025px) {
+    &.secondary-sidebar-open {
+      width: calc(100% - 300px - #{$secondary-sidebar-width});
+    }
+  }
+  @media (max-width:1024px){
+    width: calc(100% - 0px);
+    margin-left: 0px;
+    .main-content-wrap {
+      padding-top: 80px;
+    }
+  }
+  
+}

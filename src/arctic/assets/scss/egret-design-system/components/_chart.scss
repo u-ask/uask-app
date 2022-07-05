@@ -1,0 +1,11 @@
+.apexcharts-legend.position-bottom .apexcharts-legend-series, 
+.apexcharts-legend.position-top .apexcharts-legend-series {
+  display: flex !important;
+}
+.apexcharts-legend-text {
+  color: $text-muted-color !important;
+}
+.apexcharts-yaxis-label,
+.apexcharts-xaxis-label {
+  fill: $text-muted-color
+}

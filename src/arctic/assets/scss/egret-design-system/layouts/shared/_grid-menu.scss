@@ -1,0 +1,12 @@
+.ul-grid-menu-1{
+  height: 150px;
+  &:hover{
+    cursor: pointer;
+    background-color: $primary;
+    color: $white !important;
+    border-radius: $border-radius;
+    i{
+      color: $white !important;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.app-admin-wrap-layout-1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: $transition-base;
+}
+
+// @import "header";
+// @import "navigation";
+@import "sidebar";
+// @import "content";

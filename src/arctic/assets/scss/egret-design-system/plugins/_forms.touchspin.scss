@@ -1,0 +1,28 @@
+// span.input-group-text {
+//  display: none;
+// }
+.input-group input + .input-group-addon {
+ margin-left: 0;
+}
+.input-group-text{
+  display: flex;
+  width: 30px;
+  justify-content: center;
+  padding: 4px 0px;
+  background-color: $gray-200;
+}
+
+.btn.btn-primary:hover, .btn-primary.custom-file-control:hover::before {
+ background-color: $white; 
+ border-color: none; 
+}
+
+
+.input-group-btn-vertical{
+  .bootstrap-touchspin-up{
+    margin: 0;
+  }
+  .bootstrap-touchspin-down{
+    margin: 0;
+  }
+}

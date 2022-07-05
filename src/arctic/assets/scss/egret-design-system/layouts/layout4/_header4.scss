@@ -1,0 +1,30 @@
+.ul-header-4{
+  width: 100%;
+  box-shadow: $shadow-4dp;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 8px 0px;
+  background-color: $white;
+  z-index: $z-index-popup;
+  transition: $transition-base;
+  // &.close-secondary-sidebar{
+  //   width: 100%;
+  // }
+  @media (max-width: 1024px){
+    box-shadow: none;
+    background-color: transparent;
+  }
+  .ul-header-4-content{
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .logo{
+    width: 40px;
+    height: auto;
+    @media (max-width: 1024px){
+      display: none;
+    }
+  }
+ 
+}

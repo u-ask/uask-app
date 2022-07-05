@@ -1,0 +1,34 @@
+.badge {
+  padding: .3em .4em;
+  font-weight: 500;
+  &.badge-white {
+    background: $white;
+    color: $gray-900;
+  }
+}
+.badge-rounded{
+  border-radius: 16px;
+  padding: 10px 15px;
+}
+
+
+.btn-badge {
+  position: relative;
+  .badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+  }
+}
+
+.badge-rectangle{
+  border-radius: 5px;
+  text-align: center;
+  padding: .7rem 1rem;
+  margin-left: .5rem;
+}
+@include badge-colors();
+@include badge-circles();
+@include badge-opacity();
+@include badge-avatar();
+@include badge-brand();

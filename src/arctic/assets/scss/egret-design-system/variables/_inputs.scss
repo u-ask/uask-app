@@ -1,0 +1,34 @@
+// $input-height: rem(40px); // 40px
+// $input-font-size: rem(14px); // 14px
+// $input-default-radius: rem(4px);
+// $input-rounded-radius: rem(30px); // 30px
+$input-icon-font-size: rem(14px);
+$input-icon-color:     $gray-600;
+$input-state-icon-size: rem(13px); // 13px
+
+$input-border-color: $border-color;
+$input-border-width: 1px;
+
+
+
+$input-with-icon-margin-left:    rem(22px);
+$input-with-icon-input-padding:  $input-with-icon-margin-left;
+
+
+
+// checkbox
+$checkbox-height: rem(20px);
+$checkbox-width: rem(20px);
+
+
+// switch
+
+$switch-padding-left:             rem(56px) !default;
+$switch-height:                   rem(14px) !default;
+$switch-slider-width:             rem(42px) !default;
+$switch-slider-radius:            rem(30px) !default;
+$switch-slider-bg:                $gray-300 !default;
+$switch-handle-height:            rem(20px) !default;
+$switch-handle-width:             rem(20px) !default;
+$switch-handle-checked-position:  1.5rem !default;
+$switch-handle-disabled-color:    $gray-500 !default;

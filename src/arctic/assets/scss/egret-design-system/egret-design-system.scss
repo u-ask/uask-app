@@ -1,0 +1,29 @@
+/*
+  Egret Design System by UI Lib
+*/
+/*
+ * ============================
+ * File: egret-design-system.scss
+ * Project: egret-vue
+ * File Created: Monday, 13th April 2020 2:02:52 am
+ * Author:UILIB
+ * AuthorUrl:https://themeforest.net/user/ui-lib
+ * -----
+ * Last Modified: Thursday, 7th May 2020 9:24:20 pm
+ * Modified By: naime hossain (naime.hossain93@gmail.com)
+ * -----
+ * Copyright 2020 - 2020 UILIB, UILIB
+ * ============================
+ */
+
+@import "variables/variables";
+@import "functions/functions";
+@import "mixins/mixins";
+@import "reboot";
+
+@import "utilities/utilities";
+// @import "components/components";
+
+// @import "sections/sections";
+// @import "layouts/layouts";
+ @import "views/views";

@@ -1,0 +1,27 @@
+.ul-cryptocurrency-card{
+  i{
+    font-size: 47px;
+    color: $gray-200;
+    opacity: 0.4;
+  }
+}
+.ul-cryptocurrency-tab{
+  ul{
+    li{
+      a{
+        padding: 0.5rem 1rem !important;
+      }
+    }
+  }
+  .ul-cryptocurrency-tab-scroll{
+    height: 752px;
+    overflow: scroll;
+  }
+}
+.ul-cryptocurrency-tab-closed{
+  i{
+    font-size: 100px;
+    opacity: 0.2;
+    color: $primary;
+  }
+}

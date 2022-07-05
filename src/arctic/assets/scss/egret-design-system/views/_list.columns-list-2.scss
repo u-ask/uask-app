@@ -1,0 +1,23 @@
+.ul-list-2{
+  .ul-list-2-wrapper{
+    .ul-list-2-label{
+      flex: 1 !important;
+    }
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .ul-list-2{
+    .ul-list-2-wrapper{
+      display: block !important;
+    }
+  }
+}
+@media only screen and (max-width: 1380px) and (min-width: 1200px)  {
+  .ul-list-2{
+    .ul-list-2-wrapper{
+      display:block !important;
+     
+    }
+  }
+}

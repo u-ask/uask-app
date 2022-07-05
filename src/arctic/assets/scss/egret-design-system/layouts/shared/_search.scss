@@ -1,0 +1,123 @@
+.ul-search-full-width {
+  &.open {
+    .ul-search-input-area {
+      display: flex;
+    }
+  }
+  .ul-search-input-area {
+    display: none;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 0 1.5rem;
+    background: $card-bg;
+    z-index: $z-index-default;
+    .bmd-form-group {
+      padding: 0;
+      height: 100%;
+      flex-grow: 1;
+    }
+    input[type="text"] {
+      border: 0;
+      width: 100%;
+      height: calc(100% - 2px);
+      background: $card-bg;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .ul-search-result-area {
+    display: none;
+    position: absolute;
+    top: 110px;
+    left: 0;
+    background: $card-bg;
+    #result_list {
+      li a {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+    }
+  }
+  .search-result-open & {
+    .ul-search-result-area {
+      display: block;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .ul-search-result-area {
+      top: 50px;
+      width: 100%;
+    }
+  }
+
+  // LAYOUT 1
+  .app-admin-wrap-layout-1 & {
+    .ul-search-result-area {
+      height: calc(100vh - #{$layout1-header-height});
+    }
+  }
+  
+  @media (min-width: 1025px) {
+    .app-admin-wrap-layout-1 & {
+      .ul-search-input-area {
+        left: $layout1-sidebar-full-width;
+        height: calc(#{$layout1-header-height} - 2px);
+        width: calc(100% - #{$layout1-sidebar-full-width});
+      }
+      .ul-search-result-area {
+        top: $layout1-header-height;
+        left: $layout1-sidebar-full-width;
+        width: calc(100% - #{$layout1-sidebar-full-width});
+      }
+    }
+    .app-admin-wrap-layout-1.sidebar-compact-onhover & {
+      .ul-search-input-area {
+        left: $layout1-sidebar-compact-width;
+        width: calc(100% - #{$layout1-sidebar-compact-width});
+      }
+      .ul-search-result-area {
+        width: calc(100% - #{$layout1-sidebar-compact-width});
+      }
+    }
+  }
+}
+
+.search-result {
+  min-width: 280px;
+  #result_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      a {
+        display: flex;
+        align-items: center;
+        color: $text-muted-color;
+        padding: 0.5rem;
+        border-radius: $border-radius-sm;
+        &:hover {
+          background: get-color-opacity("blue", 200);
+          color: $primary;
+          .autoComplete_highlighted {
+            color: $primary;
+          }
+        }
+        i {
+          font-size: $font-size-sm;
+          margin-right: 0.5rem;
+        }
+        .autoComplete_highlighted {
+          color: $body-color;
+          font-weight: $font-weight-bold;
+        }
+      }
+    }
+  }
+}

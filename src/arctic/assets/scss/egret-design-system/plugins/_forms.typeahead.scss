@@ -1,0 +1,29 @@
+// input.form-control.typeahead.tt-hint {
+//   width: 100% !important;
+// }
+
+.tt-menu {
+ background-color: $white;
+ width: 100%;
+ box-shadow: $shadow-8dp;
+ 
+}
+
+.tt-suggestion.tt-selectable{
+ padding: 5px 10px;
+ 
+}
+.tt-suggestion.tt-selectable:hover{
+  background-color: $primary;
+  color: $white;
+  cursor: pointer;
+ 
+}
+.tt-highlight{
+ font-weight: $font-weight-normal;
+}
+
+#scrollable-dropdown-menu .tt-menu {
+  max-height: 150px !important;
+  overflow-y: auto !important;
+}

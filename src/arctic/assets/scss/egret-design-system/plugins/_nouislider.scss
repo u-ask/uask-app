@@ -1,0 +1,55 @@
+
+.noUi-horizontal .noUi-handle {
+ width: 28px;
+ height: 28px;
+ right: -17px;
+ top: -5px;
+ border-radius: 50%;
+ background-color:$white;
+ box-shadow: none;
+  &::before{
+    display:none;
+  }
+  &::after{
+   display:none;
+  }
+}
+.noUi-connects{
+  background-color:$body-bg;
+}
+.noUi-connect{
+ background-color: $primary;
+}
+.noUi-target{
+  border-color:$border-color-light;
+  box-shadow: none;
+  border-radius: 50px;
+}
+.noUi-horizontal .noUi-handle:focus{
+  outline: none;
+}
+
+.noUi-vertical .noUi-handle.noUi-handle-lower{
+  width: 28px;
+  height: 28px;
+  right: -7px;
+  top: -5px;
+  border-radius: 50% !important;
+  background-color:$white;
+  box-shadow: none;
+   &::before{
+     display:none;
+   }
+   &::after{
+    display:none;
+   }
+}
+
+.noUi-vertical .noUi-handle:focus{
+  outline: none;
+}
+
+.noUi-target.noUi-vertical {
+  height: 150px;
+  width: 15px;
+}

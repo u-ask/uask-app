@@ -1,0 +1,14 @@
+.sortable {
+  cursor : move
+}
+.sortable-drag {
+  opacity: 0;
+}
+
+.flip-list-move{
+  transition: transform 0.5s;
+}
+.ghost {
+  border-left: 1px solid #43A047;
+  opacity: 0.7;
+}

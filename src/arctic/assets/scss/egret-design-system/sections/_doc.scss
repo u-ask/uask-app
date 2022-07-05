@@ -1,0 +1,172 @@
+$hljs-bg: $border-color-light;
+$doc-card-shadow: $shadow-6dp;
+
+/*
+  Code viewer
+*/
+pre {
+  // margin-top: -38px;
+}
+.copy-code {
+  position: relative;
+  .btn-clipboard {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    padding: .2rem .4rem;
+    z-index: $z-index-default;
+  }
+}
+.code {
+  // margin-bottom: 1rem;
+}
+.hljs {
+  background: $hljs-bg;
+}
+.doc-example {
+  position: relative;
+  padding: $spacing-md $spacing-lg $spacing-xl $spacing-lg;
+  // border: $border-width-lg solid $border-color-light;
+  border-bottom: none;
+  border-radius: $border-radius $border-radius 0 0;
+  background: $card-bg;
+  box-shadow: $doc-card-shadow;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 0px;
+    height: 16px;
+    background: $card-bg;
+    z-index: $z-index-default;
+  }
+
+  + .copy-code + pre {
+    position: relative;
+    border-radius: 0 0 $border-radius $border-radius;
+    box-shadow: $doc-card-shadow;
+    margin-bottom: 2rem;
+    &.collapsed {
+      height: 80px;
+      overflow: hidden;
+      .btn-copy {
+        display: none;
+      }
+      &::after {
+        display: flex;
+      }
+    }
+    &::after {
+      display: none;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      content: "View Code";
+      background: rgba($card-bg, 1);
+      align-items: center;
+      justify-content: center;
+      color: $primary;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: underline;
+      // z-index: $z-index-sticky;
+    }
+  }
+}
+
+
+//
+// h1.doc-section-title {
+//   font-size: 1.5rem;
+// }
+// h2.doc-section-title {
+//   font-size: 1.25rem;
+// }
+// h3.doc-section-title {
+//   font-size: 1rem;
+// }  
+
+.doc-section-title {
+  // margin: 1.5rem 0 1rem 0;
+  // font-weight: $font-weight-semi;
+  position: relative;
+  margin: 0;
+  padding: 1rem 1.5rem;
+  z-index: 1;
+  background: $card-bg;
+  border-radius: $border-radius $border-radius 0 0;
+  @include card-title();
+  span.border-bottom {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+    z-index: $z-index-docked;
+  }
+  &::after,&::before {
+    position: absolute;
+    width: 100%;
+    content: "";
+    left: 0;
+    z-index: -1;
+  }
+  &::before {
+    bottom: -16px;
+    height: 30px;
+    background: $card-bg;
+    z-index: $z-index-docked;
+  }
+  &::after {
+    bottom: 0px;
+    height: 100%;
+    border-bottom: 1px solid $border-color;
+    box-shadow: $doc-card-shadow;
+  }
+  &:hover {
+    .section-link {
+      opacity: 1;
+    }
+  }
+  .section-link {
+    opacity: 0;
+    padding-left: .3rem;
+    display: none;
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      content: "\f0c1";
+      font-weight: 900!important;
+      font-size: 18px;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      line-height: 1;
+      vertical-align: middle;
+    }
+  }
+}
+
+/*
+  Layout
+*/ 
+
+
+@media (max-width: 767px) {
+  .sidebar-container {
+      .sidebar {
+          background: $white;
+          .sidebar-close {
+              display: block;
+          }
+      }
+  }
+}

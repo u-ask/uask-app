@@ -1,0 +1,23 @@
+.ul-list-row-wrapper{
+  .ul-list-row-progressbar{
+    margin-right: 5rem;
+  }
+  .ul-list-row-mobile{
+   display: none;
+  }
+}
+
+@media only screen and (max-width: 516px) {
+   .ul-list-row-link{
+     display: none;
+   }
+   .ul-list-row-widget-stats{
+     display: none !important;
+     
+   }
+   .ul-list-row-wrapper{
+    .ul-list-row-mobile{
+      display: block;
+    }
+   }
+}

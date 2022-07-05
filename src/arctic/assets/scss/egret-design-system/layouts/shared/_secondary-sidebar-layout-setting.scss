@@ -1,0 +1,103 @@
+.secondary-sidebar-layout-settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: $slate;
+  width: $secondary-sidebar-width;
+  height: 100vh;
+  position: fixed;
+  right: -#{$secondary-sidebar-width};
+  z-index: $z-index-aside;
+  opacity: 1 !important;
+  transition: $transition-base;
+  .secondary-sidebar-open & {
+    right: 0px;
+    opacity: 1;
+  }
+  .secondary-left-button {
+    position: fixed;
+    right: 13px;
+    transform: rotate(180deg);
+    bottom: 0;
+  }
+  .secondary-sidebar-layout-settings-button {
+    position: fixed;
+    right: 8px;
+    bottom: 16px;
+    .secondary-sidebar-open & {
+      transform: rotate(180deg);
+    }
+  }
+  .egret-customizer {
+    position: fixed;
+    display: none;
+    right: 50px;
+    width: 320px;
+    height: 100vh;
+    transition: $transition-base;
+    .colors {
+      display: flex;
+      flex-wrap: wrap;
+      .color {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+        margin-top: 4px;
+        margin-right: 12px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: $shadow-4dp;
+        .sub-color {
+          position: absolute;
+          border: 12px solid transparent;
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          bottom: -12px;
+          left: -12px;
+          border-radius: 50%;
+          &.light {
+            background-color: $gray-300;
+          }
+        }
+      }
+    }
+    @media (max-width: 1024px) {
+      right: 0px;
+    }
+    &.show {
+      display: block;
+    }
+    &.collapse {
+      right: 0px;
+      @media (max-width: 1024px) {
+        right: 50px;
+      }
+    }
+
+    .egret-customizer-header {
+      padding: 1.2rem;
+      box-shadow: $shadow-2dp;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    // right: -50px;
+    .secondary-sidebar-layout-settings-button {
+      // position: fixed;
+      // right: 13px;
+      // transform: rotate(180deg);
+      // bottom: 0;
+      &.secondary-left-button {
+        // position: fixed;
+        // right: 13px;
+        transform: rotate(360deg);
+      }
+    }
+  }
+}

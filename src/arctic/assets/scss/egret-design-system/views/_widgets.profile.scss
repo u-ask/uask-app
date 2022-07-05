@@ -1,0 +1,46 @@
+.ul-widget-profile {
+  .ul-widget-mobile-profile {
+    display: none;
+    @media (max-width: "765px") {
+      display: block;
+    }
+  }
+  .ul-widget-profile-cover {
+    background: url("/assets/images/gallery-2/1.jpg");
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover;
+    height: 350px;
+  }
+  .ul-widget-profile-cover-content {
+    justify-content: space-between;
+    @media (max-width: "765px") {
+      justify-content: center;
+    }
+    img {
+      margin-top: -60px;
+    }
+    .ul-widget-profile-cover-content-button {
+      margin-top: -40px;
+      @media (max-width: "765px") {
+        display: none;
+      }
+    }
+  }
+}
+.ul-widget-profile-img {
+  img {
+    @media (max-width: "991px") {
+      display: none;
+    }
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50px;
+    left: 31px;
+    width: 1.4px;
+    height: calc(100% - 50px);
+    background: $gray-300;
+  }
+}

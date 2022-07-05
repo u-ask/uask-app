@@ -1,0 +1,32 @@
+.sidebar-panel,
+.main-content-wrap,
+.main-header {
+  transition: all 0.2s ease-in;
+}
+
+.main-content-wrap {
+  width: 100%;
+  min-height: 100vh;
+  float: right;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .main-content-body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex: 1 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+.app-admin-wrap-layout-1.sidebar-compact-onhover {
+  .sidebar-compact-switch {
+    
+    div, &::after, &::before {
+      width: 100%;
+    }
+  }
+}

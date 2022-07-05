@@ -1,0 +1,15 @@
+.page-item.previous{
+  margin-right: 8px !important;
+}
+.page-item.next{
+  margin-left: -8px !important;
+}
+.page-item.first{
+  margin-right: -20px;
+}
+.page-item.last{
+  margin-left: -20px;
+}
+.ul-datatable-rowgrouping{
+  background-color: $gray-200;
+}

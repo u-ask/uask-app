@@ -1,0 +1,107 @@
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, 
+.show > .btn.dropdown-toggle:focus{
+  box-shadow: none;
+}
+// button i.material-icons{
+//   font-size: $font-size-icon;
+//   vertical-align: middle;
+// }
+.dropdown{
+  button {
+    i.material-icons{
+      // font-size: $font-size-button-icon;
+      vertical-align: middle;
+    }
+  }
+  .dropdown-menu {
+    border: 0;
+  
+    font-size: $font-size-base;
+    overflow: hidden;
+    z-index: $z-index-dropdown;
+    // @include transition-all();
+    @include shadow-8dp();
+    
+  
+    .dropdown-header {
+      color: $gray-600;
+      font-weight: $font-weight-semi;
+      padding: 0.75rem 1.5rem 0.5rem;
+    }
+  
+    .dropdown-item {
+      flex-flow: row nowrap;
+      padding: 0.69rem 1.5rem;
+      min-height: 2rem;
+      i.material-icons{
+        font-size: $font-size-button-icon;
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+      @include hover-focus-active {
+        background-color: $gray-200;
+        // color: $white;
+        outline: 0;
+        // i {
+        //   color: $white !important;
+        // }
+      }
+      &.active {
+        background-color: lighten($primary, 3);
+        color: $white;
+      }
+    }
+    
+  }
+  
+}
+
+.ul-avatar-dropdown{
+  width: 210px;
+  max-width: 220px;
+  .card-header{
+    position: relative;
+    height: 50px;
+    border: 0;
+  }
+  .ul-avatar-dropdown-container{
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    bottom: -24px;
+    margin-left: 24px;
+  }
+
+}
+
+.ul-notification{
+  min-width: 300px;
+  max-width: 320px;
+  .card-header{
+    position: relative;
+  }
+  a.ul-notification-alert{
+    position: absolute;
+    top: 60px;
+    padding: 13px 42px;
+    font-size: 14px;
+    font-weight: $font-weight-normal;
+  }
+  .ul-scroll-dropdown{
+    height: 307px;
+    .ul-notification-scrolldown{
+      .dropdown-item{
+        max-width: none;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid $gray-200;
+      }
+      .dropdown-item:last-child{
+        border-bottom: none;
+      }
+    }
+  }
+}

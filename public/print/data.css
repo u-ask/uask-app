@@ -1,0 +1,85 @@
+body * {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.interview-label {
+  font-size: large;
+  font-weight: 700;
+  border: 1px #000;
+}
+.page-header {
+  font-size: medium;
+  padding-left: 5px;
+}
+.page {
+  padding-left: 0.5cm;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  padding-right: 0.5cm;
+  border: 1px solid gray;
+  border-radius: 3px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.interview-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #000;
+  margin-bottom: 20px;
+}
+.interview {
+  margin-top: 1cm;
+  page-break-after: always;
+}
+.section {
+  padding-left: 1cm;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+.section-header {
+  break-after: avoid;
+  font-size: small;
+  border-bottom: 1px solid gray;
+}
+.item {
+  break-inside:avoid-page;
+  position: relative;
+  padding-left: 1cm;
+  padding-bottom: 0.5em;
+  font-size: x-small;
+}
+.item-content {
+  display: flex;
+  justify-content: space-between;
+}
+.item-part {
+  padding-right: 10px;
+  text-align: left;
+  width: 12cm;
+  margin: 2px 0 2px 0;
+}
+.item-part.value.simple {
+  min-width: 4cm;
+  width: auto;
+}
+
+.patient.annotated .item-header {
+   height: 1em;
+}
+
+.label.box {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 1px;
+}
+.raw-value {
+  color: blue
+}
+
+div.annotation {
+  color: red;
+}
+.item-part.value.rich div.annotation,
+.item-part.value.simple div.annotation {
+  position: absolute;
+  top: 0;
+  left: 1cm;
+}

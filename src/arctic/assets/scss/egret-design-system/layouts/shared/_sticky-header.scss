@@ -1,0 +1,16 @@
+.sticky-header{
+  .ul-header-navigation {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin-top: 0 !important;
+    z-index: $z-index-modal;
+    transition: $transition-base ;
+    animation: .6s forwards slideDown;
+    @include shadow-4dp()
+  }
+  .ul-header-2{
+    padding-bottom: 75px;
+  }
+}
