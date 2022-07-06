@@ -50,7 +50,6 @@ export default {
       const columnSource = this.columnSource;
       const rowSource = this.rowSource;
       const router = this.$router;
-      const kpiName = this.kpiName;
       return {
         chart: {
           type: "bar",
@@ -63,10 +62,7 @@ export default {
             dataPointSelection: (event, chartContext, config) => {
               if (this.clickable)
                 router.push({
-                  name:
-                    kpiName == "QueriesBySamples"
-                      ? "View alerts"
-                      : "Search participant",
+                  name: "Search participant",
                   query: {
                     ...(columnIndexes[config.seriesIndex] != "all"
                       ? { [columnSource]: columnIndexes[config.seriesIndex] }

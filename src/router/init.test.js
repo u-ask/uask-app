@@ -41,7 +41,7 @@ const participantToken = {
   exp: 1630484931,
   aud: "www.arone.com",
   surveys:
-    '{"P11-05":{"samples":["001"],"role":"participant","participantIds":["000003"]}}'
+    '{"P11-05":{"samples":["001"],"role":"participant","participantCodes":["000003"]}}'
 };
 
 const administratorToken = {
@@ -132,6 +132,9 @@ test("Set the current User in state", async t => {
   t.equal(currentUser().name, "Belmont");
   t.equal(currentUser().phone, "0512345678");
   t.equal(currentUser().title, "Pr.");
-  t.deepLooseEqual(currentUser().samples, samples);
+  t.deepLooseEqual(
+    currentUser().sampleCodes,
+    samples.map(s => s.sampleCodes)
+  );
   t.end();
 });

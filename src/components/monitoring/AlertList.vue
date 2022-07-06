@@ -107,13 +107,9 @@ export default {
   },
   async mounted() {
     this.loading = true;
-    const sample =
-      this.currentUser.samples.length == 1
-        ? this.currentUser.samples[0]
-        : undefined;
-    const userSampleCodes = this.currentUser.samples.map(s => s.sampleCode);
+    const userSampleCodes = this.currentUser.sampleCodes;
     const participants = await this.drivers.summaryDriver
-      .getParticipantSummaries(this.currentSurvey, sample, [
+      .getParticipantSummaries(this.currentSurvey, undefined, [
         "participantCode",
         "sampleCode",
         "alerts"

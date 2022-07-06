@@ -45,8 +45,8 @@ export default {
     async download() {
       const baseUrl = `${process.env.VUE_APP_API_URL}/export/${this.currentSurvey.name}`;
       const sampleCode =
-        this.currentUser?.samples.length == 1
-          ? this.currentUser?.samples[0].sampleCode
+        this.currentUser?.sampleCodes.length == 1
+          ? this.currentUser?.sampleCodes[0]
           : this.$route.query?.["@SAMPLE"];
       this.exportUrl = sampleCode ? `${baseUrl}/${sampleCode}` : baseUrl;
     }

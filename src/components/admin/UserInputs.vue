@@ -62,7 +62,7 @@
         ></single-choice-input>
       </div>
     </v-card-text>
-    <v-card-text v-if="!this.allCenters">
+    <v-card-text v-if="!this.allSampleProfile">
       <div id="userSamples" class="px-5 py-3 border rounded">
         <h5>{{ $t("samples") }}</h5>
         <multiple-choice-input
@@ -90,7 +90,7 @@ import ActionPanel from "./ActionPanelAdmin.vue";
 import MultipleChoiceInput from "../input/MultipleChoiceInput.vue";
 import SingleChoiceInput from "../input/SingleChoiceInput.vue";
 import TextInput from "../input/TextInput";
-import { User, Sample, DomainCollection } from "uask-dom";
+import { User, DomainCollection } from "uask-dom";
 import workflows from "@/mixin/workflows.js";
 
 export default {
@@ -113,7 +113,7 @@ export default {
   },
   computed: {
     userSamples() {
-      return this.user.samples.map(e => e.sampleCode);
+      return this.user.sampleCodes;
     },
     isUserProfile() {
       return this.$route.name == "User profile";
@@ -124,7 +124,7 @@ export default {
     readonly() {
       return this.authorizationManager.canSaveUser();
     },
-    allCenters() {
+    allSampleProfile() {
       return (
         this.workflow == undefined ||
         ["administrator", "developer", "superadministrator"].includes(this.role)
@@ -132,12 +132,9 @@ export default {
     }
   },
   methods: {
-    async onAction(event) {
+    onAction(event) {
       switch (event) {
         case "save": {
-          const samples = await this.drivers.sampleDriver.getAll(
-            this.currentSurvey
-          );
           const newUser = new User(
             this.name,
             this.firstName,
@@ -145,11 +142,7 @@ export default {
             this.workflow,
             this.email,
             this.phone,
-            this.allCenters
-              ? [new Sample("__all__")]
-              : this.samples.map(sampleCode =>
-                  samples.find(s => s.sampleCode == sampleCode)
-                ),
+            this.samples,
             DomainCollection(),
             {
               id: this.id,

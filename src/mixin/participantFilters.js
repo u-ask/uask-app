@@ -1,9 +1,8 @@
 import { formatCode } from "uask-dom";
 
 export class ParticipantFilters {
-  constructor(survey, samples, variableNames = undefined) {
+  constructor(survey, variableNames = undefined) {
     this.survey = survey;
-    this.samples = samples;
 
     this._fixedFilters = {
       "@SAMPLE": this.idSample.bind(this),
@@ -40,11 +39,13 @@ export class ParticipantFilters {
   }
 
   interviewStatus(status) {
-    return participant => status.some(s => participant.currentInterview?.status == s);
+    return participant =>
+      status.some(s => participant.currentInterview?.status == s);
   }
 
   getFilterForVariable(variableName) {
-    return value => participant => this.applyCustom(variableName, value)(participant);
+    return value => participant =>
+      this.applyCustom(variableName, value)(participant);
   }
 
   applyCustom(variableName, value) {
@@ -68,7 +69,9 @@ export class ParticipantFilters {
   }
 
   applyIfFiltered(participant, query, q) {
-    return !this.isFiltered(query, q) || this.applyFilter(participant, query, q);
+    return (
+      !this.isFiltered(query, q) || this.applyFilter(participant, query, q)
+    );
   }
 
   applyFilter(participant, query, q) {
@@ -135,12 +138,10 @@ function getLastDayOfTheYear(date) {
 export default {
   computed: {
     participantFilters() {
-      const variableNames = this.currentSurvey.pins.map(pin => pin.variableName);
-      return new ParticipantFilters(
-        this.currentSurvey,
-        this.currentUser.samples,
-        variableNames
+      const variableNames = this.currentSurvey.pins.map(
+        pin => pin.variableName
       );
+      return new ParticipantFilters(this.currentSurvey, variableNames);
     }
   }
 };

@@ -62,7 +62,6 @@ import MultipleChoiceInput from "../input/MultipleChoiceInput.vue";
 import SingleChoiceInput from "../input/SingleChoiceInput.vue";
 import ActionPanel from "../admin/ActionPanelAdmin.vue";
 import { mapGetters } from "vuex";
-import { Sample } from "uask-dom";
 import workflows from "@/mixin/workflows.js";
 
 export default {
@@ -93,8 +92,8 @@ export default {
         // eslint-disable-next-line no-unused-vars
         const { samples, ...others } = this.items[x];
         if (u.update({ ...others }) != u) return true;
-        if (u.samples.length != samples.length) return true;
-        return u.samples.some(s => !samples.includes(s.sampleCode));
+        if (u.sampleCodes.length != samples.length) return true;
+        return u.sampleCodes.some(s => !samples.includes(s));
       });
     }
   },
@@ -119,26 +118,19 @@ export default {
           phone: u.phone,
           workflow: u.workflow,
           role: u.role,
-          samples: u.samples?.map(s => s.sampleCode),
+          samples: u.sampleCodes,
           userid: u.userid
         };
       });
     },
     async saveUsers() {
-      const sampleAll = new Sample("__all__");
       await Promise.all(
         this.users.map(async (u, i) => {
           const j = this.items.findIndex(user => u.userid == user.userid);
           if (j != -1) {
-            const samples =
-              this.items[j].samples[0].sampleCodes == "__all__"
-                ? sampleAll
-                : this.items[j]?.samples?.map(s =>
-                    this.samples.find(sample => sample.sampleCode == s)
-                  );
             const update = {
               workflow: this.items[j]?.workflow,
-              samples: samples
+              sampleCodes: this.items[j]?.samples
             };
             const updated = u.update(update);
             await this.drivers.userDriver.save(this.currentSurvey, updated);

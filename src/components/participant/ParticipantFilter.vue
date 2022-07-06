@@ -127,7 +127,7 @@ export default {
       ];
     },
     idSampleDisabled() {
-      return this.currentUser.samples.length == 1;
+      return this.currentUser.sampleCodes.length == 1;
     },
     customFiltersFromQuery() {
       return {
@@ -209,12 +209,12 @@ export default {
     }
   },
   async mounted() {
-    this.allSamples = this.currentUser.samples.map(s => {
-      return { value: s.sampleCode, text: `${s.sampleCode} - ${s.name}` };
+    this.allSamples = this.currentUser.sampleCodes.map(s => {
+      return { value: s, text: s };
     });
     this.filter["@SAMPLE"] =
-      this.currentUser.samples.length == 1
-        ? this.currentUser.samples[0].sampleCode
+      this.currentUser.sampleCodes.length == 1
+        ? this.currentUser.sampleCodes[0]
         : undefined;
     const filters = {
       ...this.currentParticipantFilters,

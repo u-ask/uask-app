@@ -49,7 +49,6 @@ export default {
       const columnSource = this.columnSource;
       const rowSource = this.rowSource;
       const router = this.$router;
-      const kpiName = this.kpiName;
       return {
         labels: this.columnIndexes.map(
           ci => this.getLabel("mlstring", {}, ci, this.$i18n) ?? "undefined"
@@ -66,10 +65,7 @@ export default {
             dataPointSelection: (event, chartContext, config) => {
               if (this.clickable)
                 router.push({
-                  name:
-                    kpiName == "QueriesBySamples"
-                      ? "View alerts"
-                      : "Search participant",
+                  name: "Search participant",
                   query: {
                     ...(columnIndexes[config.dataPointIndex] != "all"
                       ? { [columnSource]: columnIndexes[config.dataPointIndex] }

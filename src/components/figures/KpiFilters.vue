@@ -21,9 +21,9 @@
 export default {
   computed: {
     samples() {
-      return this.currentUser.samples.map(s => ({
-        text: `${s.sampleCode} - ${s.name}`,
-        value: s.sampleCode
+      return this.currentUser.sampleCodes.map(s => ({
+        text: `${s} - ${s.name}`,
+        value: s
       }));
     }
   },

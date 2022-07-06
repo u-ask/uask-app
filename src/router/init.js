@@ -22,7 +22,7 @@ const {
   email,
   email_verified,
   samples,
-  participantIds,
+  participantCodes,
   userid,
   id
 } = mapBind(store, {
@@ -51,7 +51,7 @@ const {
     "email",
     "email_verified",
     "samples",
-    "participantIds",
+    "participantCodes",
     "userid",
     "id"
   ])
@@ -181,15 +181,14 @@ async function initParticipant(id) {
 
 export async function setCurrentUser() {
   const current = currentSurvey();
+  const userSamples =
+    samples()[0] == "__all__"
+      ? await drivers()
+          .sampleDriver.getAll(current)
+          .then(samples => samples.map(s => s.sampleCode))
+      : samples();
 
   if (current && samples()) {
-    const allSamples = await drivers().sampleDriver.getAll(current);
-    const samplesList =
-      samples()[0] == "__all__"
-        ? allSamples
-        : samples().map(sampleCode =>
-            allSamples.find(s => s.sampleCode == sampleCode)
-          );
     const user = new User(
       surname(),
       givenName(),
@@ -197,8 +196,8 @@ export async function setCurrentUser() {
       role(),
       email(),
       phone(),
-      samplesList,
-      participantIds(),
+      userSamples,
+      participantCodes(),
       {
         userid: userid(),
         id: id(),

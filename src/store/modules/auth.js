@@ -64,9 +64,9 @@ const getters = {
     return surveyProps(state, surveyName)?.samples;
   },
 
-  participantIds: function(state, getters, rootState) {
+  participantCodes: function(state, getters, rootState) {
     const surveyName = rootState.currentSurvey?.name;
-    return surveyProps(state, surveyName)?.participantIds;
+    return surveyProps(state, surveyName)?.participantCodes;
   },
 
   surveys: function(state) {

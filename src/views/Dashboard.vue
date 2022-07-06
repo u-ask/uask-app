@@ -1,7 +1,7 @@
 <template>
   <div class="px-0">
     <kpi-filters
-      v-if="currentUser.samples.length > 1"
+      v-if="currentUser.sampleCodes.length > 1"
       @filterSamples="changeSamples($event)"
     ></kpi-filters>
     <div
@@ -41,14 +41,17 @@ export default {
     async changeSamples(event) {
       this.selectedSamples =
         event.length > 0
-          ? this.currentUser.samples.filter(s => event.includes(s.sampleCode))
-          : this.currentUser.samples;
+          ? this.currentUser.sampleCodes.filter(s => event.includes(s))
+          : this.currentUser.sampleCodes;
       await this.loadKPIs();
     },
     async loadKPIs() {
+      const samples = await this.drivers.sampleDriver.getAll(
+        this.currentSurvey
+      );
       const [kpis, kpiSet] = await this.drivers.kpiDriver.getAll(
         this.currentSurvey,
-        this.selectedSamples
+        samples.filter(s => this.selectedSamples.includes(s.sampleCode))
       );
       this.kpiSet = kpiSet;
       this.kpis = [];
@@ -69,7 +72,7 @@ export default {
     }
   },
   async mounted() {
-    this.selectedSamples = this.currentUser.samples;
+    this.selectedSamples = this.currentUser.sampleCodes;
     await this.loadKPIs();
   },
   mixins: [kpi],

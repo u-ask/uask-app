@@ -96,7 +96,7 @@ export default {
   computed: {
     headers: function() {
       let fixedHeaders = this.fixedHeaders;
-      if (this.currentUser.samples.length == 1) {
+      if (this.currentUser.sampleCodes.length == 1) {
         fixedHeaders = this.fixedHeaders.slice(1);
       }
       return fixedHeaders.concat(this.pinsHeaders, this.actionHeaders);
@@ -192,13 +192,9 @@ export default {
   mixins: [participantFilters],
   async mounted() {
     this.loading = true;
-    const sample =
-      this.currentUser.samples.length == 1
-        ? this.currentUser.samples[0]
-        : undefined;
-    const userSampleCodes = this.currentUser.samples.map(s => s.sampleCode);
+    const userSampleCodes = this.currentUser.sampleCodes;
     this.allParticipants = await this.drivers.summaryDriver
-      .getParticipantSummaries(this.currentSurvey, sample, [
+      .getParticipantSummaries(this.currentSurvey, undefined, [
         "participantCode",
         "sampleCode",
         "currentInterview",

@@ -72,12 +72,8 @@ export default {
     }
   },
   async mounted() {
-    const sample =
-      this.currentUser.samples.length == 1
-        ? this.currentUser.samples[0]
-        : undefined;
     this.figures = await this.drivers.summaryDriver
-      .getFigures(this.currentSurvey, sample)
+      .getFigures(this.currentSurvey)
       .catch(() => {
         return {
           completedInterviewCount: 0,
@@ -101,7 +97,8 @@ export default {
       fr: {
         title: "Informations sur les interviews",
         noInterviewCount: "Participants sans interviews",
-        completedInterviewCount: "Participants avec toutes les interviews complètes",
+        completedInterviewCount:
+          "Participants avec toutes les interviews complètes",
         incompleteInterviewCount: "Participants avec interviews incomplètes"
       }
     }
