@@ -4,7 +4,7 @@
       <img
         v-if="!$vuetify.breakpoint.smAndDown"
         :src="logoURL"
-        lazy-src="/img/LogoAroneSVG.svg"
+        lazy-src="/img/logo.svg"
         :height="customLogo ? 40 : 70"
         max-width="150"
         alt="logo arone"
@@ -19,7 +19,7 @@
       <img
         class="ml-1"
         v-if="!$vuetify.breakpoint.smAndDown"
-        src="/img/LogoAroneSVG.svg"
+        src="/img/logo.svg"
         height="30"
         alt="poweredBy"
         contain
@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     customLogo() {
-      return this.logoURL != "/img/LogoAroneSVG.svg";
+      return this.logoURL != "/img/logo.svg";
     }
   },
   methods: {
@@ -59,7 +59,7 @@ export default {
           .json();
         this.logoURL = logoHash
           ? `${process.env.VUE_APP_API_URL}/document/${this.currentSurvey.name}/${logoHash}/content?shortToken=${shortToken}`
-          : "/img/LogoAroneSVG.svg";
+          : "/img/logo.svg";
         this.logoPending = false;
       }
     }

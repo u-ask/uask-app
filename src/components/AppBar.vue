@@ -14,9 +14,6 @@
       >
         <span v-if="!mobile" class="d-inline-flex align-center">
           <adaptive-logo></adaptive-logo>
-          <v-chip outlined color="success" class="mx-4"
-            ><strong>uask</strong></v-chip
-          >
         </span>
 
         <v-spacer v-if="!$vuetify.breakpoint.smAndDown" />

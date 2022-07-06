@@ -4,14 +4,11 @@
       <a href="/">
         <img
           v-if="!$vuetify.breakpoint.smAndDown"
-          src="/img/LogoAroneSVG.svg"
+          src="/img/logo.svg"
           height="70px"
           alt="logo arone"
         />
       </a>
-      <v-chip outlined color="success" class="mr-2"
-        ><strong>{{ "uask" }}</strong>
-      </v-chip>
     </span>
     <v-spacer v-if="!mobile"></v-spacer>
     <v-chip outlined color="white">
