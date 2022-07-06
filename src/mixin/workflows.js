@@ -1,12 +1,16 @@
 export default {
   computed: {
     allRoles() {
-      const roles = [
+      return [
+        { value: "writer", text: this.$t("roles.writer") },
+        { value: "reader", text: this.$t("roles.reader") },
         { value: "administrator", text: this.$t("roles.administrator") },
-        { value: "writer", text: this.$t("roles.investigator") },
-        { value: "reader", text: this.$t("roles.cst") }
+        {
+          value: "superadministrator",
+          text: this.$t("roles.superadministrator")
+        },
+        { value: "developer", text: this.$t("roles.developer") }
       ];
-      return this.isUserProfile ? roles : roles.slice(1);
     },
     knownWorkflows() {
       return this.currentSurvey.workflows
@@ -21,9 +25,13 @@ export default {
         });
     },
     allWorkflows() {
-      return [...this.knownWorkflows, ...this.allRoles]
-        .sort((a, b) => a.text.localeCompare(b.text))
-        .filter((v, x, arr) => x == 0 || arr[x - 1].value != v.value);
+      const workflows = [];
+      for (const role of this.allRoles)
+        workflows.push(
+          role,
+          ...this.knownWorkflows.filter(w => w.value.startsWith(role.value))
+        );
+      return workflows;
     },
     isHomePage() {
       return this.currentPageSet == this.currentSurvey.mainWorkflow.info;
