@@ -1,5 +1,11 @@
 <template>
-  <v-app-bar color="#2a2f45" class="px-sm text-left shadow-sm" flat absolute>
+  <v-app-bar
+    color="#2a2f45"
+    class="px-sm text-left shadow-sm"
+    :height="mobile ? '80' : '130'"
+    flat
+    absolute
+  >
     <span v-if="!$vuetify.breakpoint.xsOnly">
       <a href="/">
         <img
