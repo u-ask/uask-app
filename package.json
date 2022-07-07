@@ -37,7 +37,7 @@
     "uask-auth": "^0.2.1",
     "uask-dom": "^1.1.1",
     "uask-studio": "^1.1.1",
-    "uask-sys": "^1.1.1",
+    "uask-sys": "^1.1.5",
     "vue": "^2.6.11",
     "vue-apexcharts": "^1.6.0",
     "vue-i18n": "^8.24.1",

@@ -194,7 +194,7 @@ export default {
     this.loading = true;
     const userSampleCodes = this.currentUser.sampleCodes;
     this.allParticipants = await this.drivers.summaryDriver
-      .getParticipantSummaries(this.currentSurvey, undefined, [
+      .getAll(this.currentSurvey, undefined, [
         "participantCode",
         "sampleCode",
         "currentInterview",

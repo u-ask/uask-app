@@ -8,7 +8,7 @@ const drivers = buildDriver();
 async function seed() {
   const survey = await drivers.surveyDriver.getByName("P11-05");
   const samples = await drivers.sampleDriver.getBySampleCode(survey, "001");
-  const participants = await drivers.summaryDriver.getParticipantSummaries(
+  const participants = await drivers.summaryDriver.getAll(
     survey,
     samples,
     [
