@@ -110,10 +110,7 @@ export default {
   },
   computed: {
     readwrite() {
-      return (
-        this.isStudioMode &&
-        this.authorizationManager.canWriteItems(this.currentInterview)
-      );
+      return this.authorizationManager.canWriteItems(this.currentInterview);
     },
     currentPageIndex() {
       return this.currentInterview?.pageSet.pages.indexOf(this.currentPage) !=
@@ -188,10 +185,7 @@ export default {
             v => v.pageItem == r && typeof v.value !== "undefined"
           )
         );
-        if (
-          requirePinValues?.length == 0 ||
-          requirePinValues?.length < this.requiredPins?.length
-        )
+        if (requirePinValues?.length < this.requiredPins?.length)
           return "pending";
 
         return "creation";
@@ -371,6 +365,7 @@ export default {
   },
   created: function() {
     this.loadItems();
+    if (this.state == "creation") this.save();
   },
   watch: {
     currentPage: async function() {
