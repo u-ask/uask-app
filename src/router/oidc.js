@@ -3,13 +3,13 @@ import { UserManager } from "oidc-client-ts";
 import { clearStateToken, setStateToken } from "./state.js";
 
 const oidcSettings = {
-  authority: `${process.env.VUE_APP_AUTHORITY_URL}`,
+  authority: `${process.env.VUE_APP_AUTH_URL}`,
   client_id: "uask",
   response_type: "code",
   scope: "openid email profile",
-  redirect_uri: `${process.env.VUE_APP_CALLBACK_ROOT_URL}`,
-  post_logout_redirect_uri: `${process.env.VUE_APP_CALLBACK_ROOT_URL}-logout`,
-  silent_redirect_uri: `${process.env.VUE_APP_CALLBACK_ROOT_URL}-renew`,
+  redirect_uri: `${process.env.VUE_APP_CB_ROOT_URL}`,
+  post_logout_redirect_uri: `${process.env.VUE_APP_CB_ROOT_URL}-logout`,
+  silent_redirect_uri: `${process.env.VUE_APP_CB_ROOT_URL}-renew`,
   silentRequestTimeoutInSeconds: 30,
   loadUserInfo: true
 };
