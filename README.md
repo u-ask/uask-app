@@ -43,6 +43,6 @@ A test sample with a test participant have been created. Open the participant by
 At the top right of the screen, click on the user menu (the one with an icon representing a person). Toggle studio mode. Modify the forms to customize the survey.
 
 Refer to the following documentations:
- -[U-ASK Domain Model]((https://github.com/u-ask/uask-dom#readme) about surveys structure and workflows setup.
- -[U-ASK Management System]((https://github.com/u-ask/uask-dom#readme) about the recommended way to manage surveys development life cycle.
+ -[U-ASK Domain Model](https://github.com/u-ask/uask-dom#readme) about surveys structure and workflows setup.
+ -[U-ASK Management System](https://github.com/u-ask/uask-dom#readme) about the recommended way to manage surveys development life cycle.
 
