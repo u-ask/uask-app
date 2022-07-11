@@ -177,10 +177,16 @@ test("State interview consistency", async t => {
 test("Current user informations", async t => {
   const survey = await drivers().surveyDriver.getByName("P11-05");
   setSurvey(survey);
-  const user = new User("me", "and me", "and me again", "participant", "me@me.me");
+  const user = new User(
+    "me",
+    "and me",
+    "and me again",
+    "writer:external",
+    "me@me.me"
+  );
   setUser(user);
   t.equal(currentUser(), user);
-  t.equal(currentWorkflow(), survey.workflow("participant"));
+  t.equal(currentWorkflow(), survey.workflow("writer:external"));
   t.end();
 });
 

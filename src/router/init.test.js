@@ -35,15 +35,6 @@ const adminToken = {
   surveys: '{"P11-05":{"samples":["001"],"role":"administrator"}}'
 };
 
-const participantToken = {
-  iss: "Arone",
-  iat: 1598948931,
-  exp: 1630484931,
-  aud: "www.arone.com",
-  surveys:
-    '{"P11-05":{"samples":["001"],"role":"participant","participantCodes":["000003"]}}'
-};
-
 const administratorToken = {
   sub: "23121d3c-84df-44ac-b458-3d63a9a05497",
   email: "administrator@example.com",
@@ -89,17 +80,6 @@ test("Sync survey and participant", async t => {
   t.end();
 });
 
-test("Sync participantCode for participant role", async t => {
-  setProfile(participantToken);
-  const route = await initState(
-    { query: {}, params: {}, matched: [] },
-    { query: {}, params: {}, matched: [] }
-  );
-  t.equal(route.params.participantCode, "000003");
-  t.equal(currentParticipant().participantCode, "000003");
-  t.end();
-});
-
 test("Interview and page query loading", async t => {
   setProfile(adminToken);
   const survey = await drivers().surveyDriver.getByName("P11-05");
@@ -134,7 +114,7 @@ test("Set the current User in state", async t => {
   t.equal(currentUser().title, "Pr.");
   t.deepLooseEqual(
     currentUser().sampleCodes,
-    samples.map(s => s.sampleCodes)
+    samples.map(s => s.sampleCode)
   );
   t.end();
 });

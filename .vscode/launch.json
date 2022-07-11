@@ -4,24 +4,6 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "All unit tests",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "cwd": "${workspaceFolder}",
-            "program": "${workspaceFolder}/node_modules/tape/bin/tape",
-            "args": [
-                "-r",
-                "./src/test-setup.js",
-                "${workspaceFolder}/src/**/*.test.js"
-            ],
-            "envFile": "${workspaceFolder}/.env",
-            "internalConsoleOptions": "openOnSessionStart",
-            "outputCapture": "std"
-        },
-        {
-            "type": "node",
-            "request": "launch",
             "name": "Current file unit tests",
             "skipFiles": [
                 "<node_internals>/**"
@@ -29,8 +11,6 @@
             "cwd": "${workspaceFolder}",
             "program": "${workspaceFolder}/node_modules/tape/bin/tape",
             "args": [
-                "-r",
-                "./src/test-setup.js",
                 "${file}"
             ],
             "envFile": "${workspaceFolder}/.env",

@@ -21,7 +21,7 @@ async function seed() {
     ],
     { limit: 5 }
   );
-  const filters = new ParticipantFilters(survey, samples, ["COU", "SMOWHEN"]);
+  const filters = new ParticipantFilters(survey, ["COU", "SMOWHEN"]);
   return { survey, filters, participants };
 }
 
