@@ -2,6 +2,8 @@
 # U-ASK Web Application
 This repository contains web application of the [U-ASK](https://github.com/u-ask/uask#readme) system. Before going further with this setup guide be sure to have been through [U-ASK](https://github.com/u-ask/uask#readme) introduction and demo.
 
+_*Note:*_ npm scripts needs bash ; please [configure git bash](https://stackoverflow.com/questions/23243353/how-to-set-shell-for-npm-run-scripts-in-windows) as script shell for npm on Windows.
+
 # Install the application
 ```
 git clone https://github.com/u-ask/uask-sys.git
@@ -17,12 +19,13 @@ git clone https://github.com/u-ask/uask-sys.git
 | VUE_APP_AUTH_URL    | the public URL of the authentication service   | `https://uask-api.example.com/oidc`
 | VUE_APP_CB_ROOT_URL | the URL of the open id callback                | `https://uask.example.com/callback`
 
-## Buid the application
+## Build the application
 ```
 npm run build
 ```
 This will create a `dist` directory that conatins a static single page application.
 :web
+
 # Serve the application
 ```
 npm run start
