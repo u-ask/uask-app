@@ -4,27 +4,33 @@
       <v-card-title>
         {{ $t("import") }}
       </v-card-title>
-      <v-card-subtitle>{{ $t("maj") }}</v-card-subtitle>
       <v-card-text>
         <v-file-input
           accept=".json"
           outlined
           :value="jsonFile"
-          @change="readFileContent($event)"
+          @change="setFileContent($event)"
         ></v-file-input>
       </v-card-text>
+      <v-card-actions>
+        <v-alert
+          class="mx-auto"
+          v-if="!isSelectedSurvey && !!jsonFileContent"
+          type="error"
+        >
+          {{
+            $t("notSameSurvey", {
+              required: currentSurvey.name,
+              got: jsonFileContent.name
+            })
+          }}
+        </v-alert>
+        <v-spacer v-if="isSelectedSurvey"></v-spacer>
+        <div v-if="isSelectedSurvey">
+          <action-panel @action="onAction($event)"> </action-panel>
+        </div>
+      </v-card-actions>
     </v-card>
-    <v-alert v-if="!isSelectedSurvey && !!jsonFileContent" type="error">
-      {{ $t("notSameSurvey") }}
-    </v-alert>
-    <div v-if="isSelectedSurvey" class="text-right my-3">
-      <action-panel @action="onAction($event)"></action-panel>
-    </div>
-    <survey-details
-      :surveyFileContent="jsonFileContent"
-      :surveyFile="jsonFile"
-      v-if="jsonFile"
-    ></survey-details>
 
     <!-- Double confirmation -->
     <v-dialog v-model="dialog" persistent max-width="400">
@@ -50,8 +56,7 @@
 
 <script>
 import BaseCard from "@/arctic/components/base/Card.vue";
-import SurveyDetails from "./SurveyDetails.vue";
-import ActionPanel from "./ActionPanelAdmin.vue";
+import ActionPanel from "../admin/ActionPanelAdmin.vue";
 import { SurveyBuilder } from "uask-dom";
 import { surveyDeserialize } from "uask-sys";
 export default {
@@ -68,7 +73,7 @@ export default {
     }
   },
   methods: {
-    async readFileContent(file) {
+    async setFileContent(file) {
       this.jsonFile = file;
       this.jsonFileContent = file ? JSON.parse(await file?.text()) : undefined;
     },
@@ -100,27 +105,22 @@ export default {
   i18n: {
     messages: {
       en: {
-        import: "Import a survey as a JSON file",
-        maj: "By importing a file you will update the selected survey.",
+        import: "Import survey",
         updateSurvey: "Do you want to update this survey ?",
         alertUpdate: "Be careful, this action is irreversible.",
-        notSameSurvey:
-          "Be carefull, the imported survey does not have the same name as the selected survey. Please verify your file or change it."
+        notSameSurvey: "The imported survey must be {required}, got {got}."
       },
       fr: {
-        import: "Importer une étude au format JSON",
-        maj:
-          "En important un fichier vous mettrez à jour l'étude sélectionnée ci-dessus.",
+        import: "Importer l'étude",
         updateSurvey: "Voulez-vous mettre à jour cette étude ?",
         alertUpdate: "Attention cette action est irréversible",
         notSameSurvey:
-          "Attention, le nom de l'étude importée est différente de l'étude selectionnée. Merci de vérifier votre fichier ou de le changer."
+          "Le nom de l'étude importée doit être {required} et non {got}."
       }
     }
   },
   components: {
     BaseCard,
-    SurveyDetails,
     ActionPanel
   }
 };

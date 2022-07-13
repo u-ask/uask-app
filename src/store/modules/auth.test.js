@@ -59,7 +59,6 @@ const administratorToken = {
   title: "Pr.",
   nonce: "42bb9c8a9202441f8cf46a42bcc69414",
   s_hash: "XAG909zOhG1KfN7eMRtGcA",
-  aud: "spiral",
   exp: 2531573339,
   iat: 1612545355,
   iss: "http://localhost",
