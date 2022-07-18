@@ -8,7 +8,7 @@
     >
       {{ $t("fulfilled") }}
     </v-snackbar>
-    <base-card no-body v-if="currentPageSet.pages">
+    <v-card no-body v-if="currentPageSet.pages">
       <v-card-title :class="{ 'px-0 py-0': mobile }">
         <page-panel></page-panel>
       </v-card-title>
@@ -19,14 +19,14 @@
           </template>
         </page-details>
       </v-card-text>
-    </base-card>
+    </v-card>
   </div>
 </template>
 
 <script>
 import PagePanel from "./PagePanel";
 import PageDetails from "./PageDetails";
-import BaseCard from "@/arctic/components/base/Card";
+
 export default {
   data() {
     return {
@@ -45,8 +45,7 @@ export default {
   },
   components: {
     PagePanel,
-    PageDetails,
-    BaseCard
+    PageDetails
   },
   i18n: {
     messages: {

@@ -4,12 +4,12 @@ const allLangs = [
   {
     value: "en",
     text: "English",
-    flag: require("@/arctic/assets/images/flags/1x1/us.svg")
+    flag: require("@/assets/us.svg")
   },
   {
     value: "fr",
     text: "Français",
-    flag: require("@/arctic/assets/images/flags/1x1/fr.svg")
+    flag: require("@/assets/fr.svg")
   }
 ];
 

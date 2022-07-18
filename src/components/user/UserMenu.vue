@@ -3,14 +3,14 @@
     <template v-slot:activator="{ on, attrs }">
       <v-btn id="userMenu" color dark v-bind="attrs" v-on="on" icon>
         <v-avatar size="30">
-          <img src="@/arctic/assets/images/avatars/001-man.svg" alt />
+          <img src="/img/001-man.svg" alt="" />
         </v-avatar>
       </v-btn>
     </template>
     <div class="p-3 bg-white">
       <div class="flex items-center mb-10">
         <v-avatar size="56">
-          <img src="@/arctic/assets/images/avatars/001-man.svg" alt="" />
+          <img src="/img/001-man.svg" alt="" />
         </v-avatar>
         <div class="float-right">
           <div class="m--5">

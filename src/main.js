@@ -6,9 +6,8 @@ import mixin from "./mixin/index.js";
 import studio from "./mixin/studio.js";
 import state from "./mixin/state.js";
 import i18n from "./i18n.js";
-import vuetify from "./arctic/plugins/vuetify.js";
+import vuetify from "./vuetify.js";
 import VueNavigationBar from "vue-navigation-bar";
-import "./arctic/plugins";
 import langs from "./mixin/langs.js";
 //Bootstrap
 import "bootstrap/dist/css/bootstrap.css";
@@ -19,8 +18,6 @@ Vue.use(VueApexCharts);
 Vue.component("apexchart", VueApexCharts);
 
 //EgretKit
-import "@/arctic/assets/css/tailwind.css";
-import "@/arctic/assets/scss/egret-design-system/egret-design-system.scss";
 import "vue-navigation-bar/dist/vue-navigation-bar.css";
 
 Vue.component("vue-navigation-bar", VueNavigationBar);

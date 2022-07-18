@@ -1,23 +1,23 @@
 <template>
   <div>
     <v-card-title>{{ $t("addDoc") }}</v-card-title>
-    <base-card class="mt-3">
+    <v-card class="mt-3">
       <v-card-text>
         <div id="title" class="px-5">
           <h5>{{ $t("title") }}</h5>
           <text-input v-model="document.title"></text-input>
         </div>
       </v-card-text>
-    </base-card>
-    <base-card class="mt-3">
+    </v-card>
+    <v-card class="mt-3">
       <v-card-text>
         <div id="file" class="px-5">
           <h5>{{ $t("file") }}</h5>
           <v-file-input outlined v-model="document.file"></v-file-input>
         </div>
       </v-card-text>
-    </base-card>
-    <base-card class="mt-3">
+    </v-card>
+    <v-card class="mt-3">
       <v-card-text>
         <div id="tags" class="px-5">
           <h5>{{ $t("tags") }}</h5>
@@ -31,7 +31,7 @@
           </multiple-choice-input>
         </div>
       </v-card-text>
-    </base-card>
+    </v-card>
     <div class="my-3 text-right">
       <action-panel
         @action="onAction($event)"
@@ -45,7 +45,6 @@
 </template>
 
 <script>
-import BaseCard from "../../arctic/components/base/Card";
 import ActionPanel from "../admin/ActionPanelAdmin";
 import TextInput from "../input/TextInput";
 import MultipleChoiceInput from "../input/MultipleChoiceInput.vue";
@@ -160,7 +159,6 @@ export default {
     }
   },
   components: {
-    BaseCard,
     TextInput,
     MultipleChoiceInput,
     ActionPanel

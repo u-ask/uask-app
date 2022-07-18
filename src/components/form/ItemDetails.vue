@@ -19,7 +19,7 @@
       }}</v-chip>
     </div>
     <information-banner></information-banner>
-    <base-card class="my-3 p-1 px-10">
+    <v-card class="my-3 p-1 px-10">
       <page-item
         class="my-5"
         :item="item"
@@ -29,7 +29,7 @@
         :classes="classes"
         :modifiers="itemContent.labels"
       ></page-item>
-    </base-card>
+    </v-card>
     <audit-trail
       :pageItem="item.pageItem"
       :recordset="isRecordSet"

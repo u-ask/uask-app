@@ -1,4 +1,4 @@
-import { themeConfig, themePreset } from "../../arctic/themeConfig.js";
+import { themeConfig, themePreset } from "../../themeConfig.js";
 
 const state = {
   themeMode: themeConfig,

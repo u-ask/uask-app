@@ -1,6 +1,6 @@
 <template>
   <div>
-    <base-card class="mt-2" :class="{ 'p-6': !mobile, 'p-2': mobile }">
+    <v-card class="mt-2" :class="{ 'p-6': !mobile, 'p-2': mobile }">
       <v-card-title
         class="justify-space-between h4"
         :class="{ 'd-flex col align-center': !mobile, 'py-0': mobile }"
@@ -14,16 +14,15 @@
       </v-card-title>
       <v-divider></v-divider>
       <survey-list></survey-list>
-    </base-card>
+    </v-card>
   </div>
 </template>
 
 <script>
-import BaseCard from "@/arctic/components/base/Card.vue";
 import SurveyList from "../components/center/SurveyList.vue";
 import CreateSurveyButton from "../components/center/CreateSurveyButton.vue";
 export default {
-  components: { SurveyList, BaseCard, CreateSurveyButton },
+  components: { SurveyList, CreateSurveyButton },
   i18n: {
     messages: {
       en: {

@@ -1,5 +1,5 @@
 <template>
-  <base-card class="my-3">
+  <v-card class="my-3">
     <v-card-title>Audit-trail</v-card-title>
     <v-data-table id="audit-table" :headers="headers" :items="rows">
       <template v-slot:[`item.value`]="{ item }">
@@ -9,7 +9,7 @@
         <div v-else class="font-italic">&lt;{{ $t("empty") }}&gt;</div>
       </template>
     </v-data-table>
-  </base-card>
+  </v-card>
 </template>
 
 <script>

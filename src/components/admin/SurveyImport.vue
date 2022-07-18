@@ -34,7 +34,7 @@
 
     <!-- Double confirmation -->
     <v-dialog v-model="dialog" persistent max-width="400">
-      <base-card>
+      <v-card>
         <v-card-title>{{ $t("updateSurvey") }}</v-card-title>
         <v-card-text>{{ $t("alertUpdate") }}</v-card-text>
         <v-card-actions>
@@ -46,7 +46,7 @@
             OK
           </v-btn>
         </v-card-actions>
-      </base-card>
+      </v-card>
     </v-dialog>
 
     <!-- Confirmation du save -->
@@ -55,7 +55,6 @@
 </template>
 
 <script>
-import BaseCard from "@/arctic/components/base/Card.vue";
 import ActionPanel from "../admin/ActionPanelAdmin.vue";
 import { SurveyBuilder } from "uask-dom";
 import { surveyDeserialize } from "uask-sys";
@@ -120,7 +119,6 @@ export default {
     }
   },
   components: {
-    BaseCard,
     ActionPanel
   }
 };

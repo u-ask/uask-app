@@ -2,7 +2,7 @@
   <v-card outlined>
     <v-card-title>
       <v-avatar size="100" class="mr-2">
-        <img src="@/arctic/assets/images/avatars/001-man.svg" alt="" />
+        <img src="/img/001-man.svg" alt="" />
       </v-avatar>
       <span class="d-flex flex-column ml-4">
         <h3>

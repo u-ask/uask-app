@@ -30,7 +30,7 @@
         {{ $t("participantIncluded") }}
       </span>
     </div>
-    <base-card class="mt-3">
+    <v-card class="mt-3">
       <v-expansion-panels flat focusable>
         <v-expansion-panel>
           <v-expansion-panel-header id="toogleFilter">
@@ -83,7 +83,7 @@
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
-    </base-card>
+    </v-card>
   </v-col>
 </template>
 
@@ -97,7 +97,6 @@
 <script>
 import { mapGetters, mapMutations } from "vuex";
 import CustomizedFilter from "./CustomizedFilter";
-import BaseCard from "@/arctic/components/base/Card";
 import TextInput from "../input/TextInput.vue";
 import AcknowledgeInput from "../input/AcknowledgeInput.vue";
 import SingleChoiceInput from "../input/SingleChoiceInput.vue";
@@ -256,7 +255,6 @@ export default {
   },
   components: {
     CustomizedFilter,
-    BaseCard,
     TextInput,
     AcknowledgeInput,
     SingleChoiceInput,

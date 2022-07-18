@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12">
-    <base-card>
+    <v-card>
       <v-card-title>Participants</v-card-title>
       <v-data-table
         id="ParticipantListTable"
@@ -55,13 +55,12 @@
           </div>
         </template>
       </v-data-table>
-    </base-card>
+    </v-card>
   </v-col>
 </template>
 
 <script>
 import FillRate from "../form/FillRate";
-import BaseCard from "@/arctic/components/base/Card";
 import PageSetLabel from "../form/PageSetLabel.vue";
 import PrintData from "../tools/PrintData.vue";
 import participantFilters from "../../mixin/participantFilters";
@@ -208,7 +207,6 @@ export default {
   },
   components: {
     FillRate,
-    BaseCard,
     PageSetLabel,
     PrintData
   },

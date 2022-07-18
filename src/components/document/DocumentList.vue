@@ -1,6 +1,6 @@
 <template>
   <div id="document-table">
-    <base-card>
+    <v-card>
       <v-data-table :headers="headers" :items="rows">
         <template v-slot:[`item.Titre`]="{ item }">
           <span> {{ item.Titre }}</span>
@@ -38,14 +38,13 @@
       </v-data-table>
       <token-loader :url="documentUrl" @finished="documentUrl = undefined">
       </token-loader>
-    </base-card>
+    </v-card>
   </div>
 </template>
 
 <script>
 import { getAllTags } from "uask-sys";
 import TokenLoader from "../tools/TokenLoader.vue";
-import BaseCard from "@/arctic/components/base/Card.vue";
 
 export default {
   props: ["filter"],
@@ -130,8 +129,7 @@ export default {
     }
   },
   components: {
-    TokenLoader,
-    BaseCard
+    TokenLoader
   }
 };
 </script>
