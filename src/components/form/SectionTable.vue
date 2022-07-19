@@ -127,7 +127,7 @@
 
 <script>
 import PageItem from "./PageItem.vue";
-import { getItemWording } from "uask-dom";
+import { getItemWording, getItem } from "spiral";
 import EditItemButton from "../studio/EditItemButton.vue";
 import DeleteItemButton from "../studio/DeleteItemButton.vue";
 
@@ -178,10 +178,10 @@ export default {
   },
   methods: {
     firstItem(rowIndex) {
-      return this.content.items[rowIndex].row[0].item.pageItem;
+      return getItem(this.content.items[rowIndex].row.find(r => !!r)?.item);
     },
     rowItemCount(rowIndex) {
-      return this.content.items[rowIndex].row.length;
+      return this.content.items[rowIndex].row.filter(r => !!r).length;
     },
     isNotNull(item) {
       return item != null;
