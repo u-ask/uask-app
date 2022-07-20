@@ -49,8 +49,9 @@
       </v-card>
     </v-dialog>
 
-    <!-- Confirmation du save -->
-    <v-snackbar top></v-snackbar>
+    <v-snackbar :value="completed" color="success" top>
+      {{ $t("completed") }}
+    </v-snackbar>
   </div>
 </template>
 
@@ -62,6 +63,7 @@ export default {
   data() {
     return {
       dialog: false,
+      completed: false,
       jsonFile: undefined,
       jsonFileContent: undefined
     };
@@ -95,6 +97,7 @@ export default {
         this.$route.params.survey
       );
       this.setSurvey(updatedSurvey);
+      this.completed = true;
     },
     cancelImport() {
       this.jsonFile = undefined;
@@ -107,14 +110,16 @@ export default {
         import: "Import survey",
         updateSurvey: "Do you want to update this survey ?",
         alertUpdate: "Be careful, this action is irreversible.",
-        notSameSurvey: "The imported survey must be {required}, got {got}."
+        notSameSurvey: "The imported survey must be {required}, got {got}.",
+        completed: "Study successfully imported."
       },
       fr: {
         import: "Importer l'étude",
         updateSurvey: "Voulez-vous mettre à jour cette étude ?",
         alertUpdate: "Attention cette action est irréversible",
         notSameSurvey:
-          "Le nom de l'étude importée doit être {required} et non {got}."
+          "Le nom de l'étude importée doit être {required} et non {got}.",
+        completed: "Étude importée avec succès."
       }
     }
   },
