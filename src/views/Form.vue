@@ -15,6 +15,7 @@
             v-if="!$vuetify.breakpoint.mdAndDown && !isStudioMode"
             class="ml-2"
           ></last-save-date>
+          <toggle-visible v-if="isStudioMode" class="mx-5"></toggle-visible>
         </div>
         <information-banner v-if="isIntersecting"></information-banner>
       </v-col>
@@ -33,6 +34,7 @@ import InformationBanner from "../components/participant/InformationBanner";
 import SummaryBar from "../components/SummaryBar";
 import FormNavigator from "../components/FormNavigator";
 import LastSaveDate from "../components/form/LastSaveDate.vue";
+import ToggleVisible from "../components/studio/ToggleVisible.vue";
 
 export default {
   name: "ParticipantForm",
@@ -51,7 +53,8 @@ export default {
     PageSetViewer,
     InformationBanner,
     SummaryBar,
-    LastSaveDate
+    LastSaveDate,
+    ToggleVisible
   }
 };
 </script>

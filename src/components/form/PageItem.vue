@@ -5,11 +5,17 @@
       isStudioItemTarget ? 'studio studioItemTarget' : '',
       isStudioApply ? 'mb-3' : '',
       mobile ? 'my-3' : '',
-      isStudioItem || isStudioApply || !isStudioMode ? '' : 'border-bottom'
+      isStudioItem ||
+      isStudioApply ||
+      !isStudioMode ||
+      (!visible && !showInvisibleItems)
+        ? ''
+        : 'border-bottom',
+      !visible && showInvisibleItems ? 'bg-light' : ''
     ]"
     class="position-relative"
   >
-    <template v-if="visible">
+    <template v-if="visible || showInvisibleItems">
       <v-chip
         v-if="isStudioMode && !isStudioElement"
         :class="['ml-1 mt-2', isInfo ? 'mb-n10' : '']"
@@ -187,6 +193,7 @@ import ClearControl from "../input/ClearControl";
 import DeleteItemButton from "../studio/DeleteItemButton.vue";
 import item from "../../mixin/item";
 import OrderItemButtons from "../studio/OrderItemButtons.vue";
+import { mapGetters } from "vuex";
 
 export default {
   data() {
@@ -208,6 +215,7 @@ export default {
     "hideStudio"
   ],
   computed: {
+    ...mapGetters("studio", ["showInvisibleItems"]),
     pageItem() {
       return this.item.pageItem;
     },
@@ -239,13 +247,14 @@ export default {
       return this.specialValues.filter(e => e != "notApplicable");
     },
     visible() {
-      const show =
+      const isVisible =
         !(
           this.metadata.showable && this.item.specialValue == "notApplicable"
         ) && this.showAcknowledgeItem;
-      if (show) this.$emit("itemshown", { item: this.pageItem, visible: true });
+      if (this.showInvisibleItems || isVisible)
+        this.$emit("itemshown", { item: this.pageItem, visible: true });
       else this.$emit("itemshown", { item: this.pageItem, visible: false });
-      return show;
+      return isVisible;
     },
     enabled() {
       return !(

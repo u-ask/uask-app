@@ -7,7 +7,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("studio", ["isStudioMode"]),
+    ...mapGetters("studio", ["isStudioMode", "showInvisibleItems"]),
     pageIndex() {
       return this.currentSurvey.pages.indexOf(this.currentPage);
     },
@@ -16,7 +16,11 @@ export default {
     }
   },
   methods: {
-    ...mapMutations("studio", ["setItem"]),
+    ...mapMutations("studio", [
+      "setItem",
+      "setStudioMode",
+      "setShowInvisibleItems"
+    ]),
     studiostate() {
       return this.currentParticipant.getState(this.currentInterview);
     },

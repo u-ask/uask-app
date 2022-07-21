@@ -42,7 +42,7 @@
         </page-item>
       </div>
     </span>
-    <div v-if="plusButton" class="col text-right my-0 py-0">
+    <div v-if="plusButton" class="col text-right my-1 py-0">
       <insert-item-button
         :index="getLastItemIndexInPage + 1"
         :section="title"
