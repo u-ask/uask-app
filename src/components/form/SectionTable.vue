@@ -127,7 +127,7 @@
 
 <script>
 import PageItem from "./PageItem.vue";
-import { getItemWording, getItem } from "spiral";
+import { getItemWording, getItem } from "uask-dom";
 import EditItemButton from "../studio/EditItemButton.vue";
 import DeleteItemButton from "../studio/DeleteItemButton.vue";
 

@@ -15,7 +15,7 @@
     ]"
     class="position-relative"
   >
-    <template v-if="visible || showInvisibleItems">
+    <template v-if="visible || (showInvisibleItems && !isStudioItem)">
       <v-chip
         v-if="isStudioMode && !isStudioElement"
         :class="['ml-1 mt-2', isInfo ? 'mb-n10' : '']"
