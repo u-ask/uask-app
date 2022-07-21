@@ -99,7 +99,7 @@ export default {
       this.dialog = true;
     },
     goToSurvey(surveyName) {
-      return `./${surveyName}`;
+      return `./${surveyName}/`;
     },
     async duplicate() {
       const surveyExist = await this.drivers.surveyDriver
