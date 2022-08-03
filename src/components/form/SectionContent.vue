@@ -86,7 +86,8 @@ export default {
           return content.item;
         case "table": {
           const lastRow = content.items[content.items.length - 1];
-          return lastRow.row[lastRow.row.length - 1].item;
+          return lastRow.row[lastRow.row.filter(r => r != null).length - 1]
+            .item;
         }
         case "recordset": {
           const longestRow = content.items.reduce(

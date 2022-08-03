@@ -3,11 +3,10 @@
     ref="menu"
     v-model="menu2"
     :close-on-content-click="false"
-    :nudge-right="40"
-    :return-value.sync="time"
+    :nudge-right="180"
+    :disabled="disabled"
     transition="scale-transition"
     offset-y
-    :disabled="disabled"
     max-width="290px"
     min-width="290px"
   >
@@ -22,7 +21,11 @@
         v-on="on"
       >
         <span slot="append">
-          <v-tooltip v-if="!isValid" bottom color="dark">
+          <v-tooltip
+            v-if="!isValid && time != undefined && time != ''"
+            bottom
+            color="dark"
+          >
             <template v-slot:activator="{ on, attrs }">
               <v-icon color="danger" v-bind="attrs" v-on="on">
                 mdi-alert-circle
@@ -37,7 +40,7 @@
     <v-time-picker
       v-if="menu2"
       v-model="time"
-      :format="'24h'"
+      format="24hr"
       full-width
       @click:minute="$refs.menu.save(time)"
     ></v-time-picker>
@@ -88,6 +91,8 @@ export default {
   },
   watch: {
     value(val) {
+      if (val instanceof Date)
+        val = this.getLabel("time", { duration: false }, val, this.$i18n);
       this.changeTime(val);
     }
   },
@@ -105,5 +110,3 @@ export default {
   }
 };
 </script>
-
-<style></style>

@@ -6,7 +6,7 @@
     :plain="label"
     @click="startModification()"
     :disabled="pendingStudioModification"
-    :id="`edit-item-button-${item.variableName}`"
+    :id="`edit-item-button-${item ? item.variableName : 'undefined'}`"
   >
     <v-icon v-if="!label">mdi-pencil</v-icon>
     <span v-else>{{

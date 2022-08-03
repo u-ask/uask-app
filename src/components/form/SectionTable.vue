@@ -56,68 +56,66 @@
             </v-menu>
           </template>
           <template v-slot:[`item.actions`]="{ item, index }">
-            <div class="text-right">
-              <v-menu offset-y :disabled="pendingStudioModification">
-                <template v-slot:activator="{ on, attrs }">
-                  <v-icon
-                    :disabled="pendingStudioModification"
-                    v-bind="attrs"
-                    v-on="on"
-                    color="info"
-                    >mdi-pencil</v-icon
-                  >
-                </template>
-                <v-list-item-group class="bg-white">
-                  <v-list-item
-                    v-for="(col, index) in headers.slice(1, headers.length - 1)"
-                    :key="index"
-                  >
-                    <edit-item-button
-                      :item="
-                        item[col.value]
-                          ? item[col.value].item.pageItem
-                          : undefined
-                      "
-                      :label="true"
-                    ></edit-item-button>
-                  </v-list-item>
-                </v-list-item-group>
-              </v-menu>
-              <v-menu offset-y :disabled="pendingStudioModification">
-                <template v-slot:activator="{ on, attrs }">
-                  <v-icon
-                    :disabled="pendingStudioModification"
-                    v-bind="attrs"
-                    v-on="on"
-                    color="info"
-                    >mdi-delete</v-icon
-                  >
-                </template>
-                <v-list-item-group class="bg-white">
-                  <v-list-item
-                    v-for="(col, index) in headers.slice(1, headers.length - 1)"
-                    :key="index"
-                  >
-                    <delete-item-button
-                      :item="
-                        item[col.value]
-                          ? item[col.value].item.pageItem
-                          : undefined
-                      "
-                      :label="true"
-                    ></delete-item-button>
-                  </v-list-item>
-                  <v-list-item>
-                    <delete-item-button
-                      :item="firstItem(index)"
-                      :count="rowItemCount(index)"
-                      :label="true"
-                      :customLabel="$t('row')"
-                    ></delete-item-button>
-                  </v-list-item>
-                </v-list-item-group>
-              </v-menu>
-            </div>
+            <v-menu offset-y :disabled="pendingStudioModification">
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon
+                  :disabled="pendingStudioModification"
+                  v-bind="attrs"
+                  v-on="on"
+                  color="info"
+                  >mdi-pencil</v-icon
+                >
+              </template>
+              <v-list-item-group class="bg-white">
+                <v-list-item
+                  v-for="(col, index) in filteredHeaders(item)"
+                  :key="index"
+                >
+                  <edit-item-button
+                    :item="
+                      item[col.value]
+                        ? item[col.value].item.pageItem
+                        : undefined
+                    "
+                    :label="true"
+                  ></edit-item-button>
+                </v-list-item>
+              </v-list-item-group>
+            </v-menu>
+            <v-menu offset-y :disabled="pendingStudioModification">
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon
+                  :disabled="pendingStudioModification"
+                  v-bind="attrs"
+                  v-on="on"
+                  color="info"
+                  >mdi-delete</v-icon
+                >
+              </template>
+              <v-list-item-group class="bg-white">
+                <v-list-item
+                  v-for="(col, index) in headers.slice(1, headers.length - 1)"
+                  :key="index"
+                >
+                  <delete-item-button
+                    :item="
+                      item[col.value]
+                        ? item[col.value].item.pageItem
+                        : undefined
+                    "
+                    :label="true"
+                  ></delete-item-button>
+                </v-list-item>
+                <v-list-item>
+                  <delete-item-button
+                    :item="firstItem(index)"
+                    :count="rowItemCount(index)"
+                    :label="true"
+                    :customLabel="$t('row')"
+                  ></delete-item-button>
+                </v-list-item>
+              </v-list-item-group>
+            </v-menu>
           </template>
         </v-data-table>
       </div>
@@ -127,7 +125,7 @@
 
 <script>
 import PageItem from "./PageItem.vue";
-import { getItemWording, getItem } from "uask-dom";
+import { getItemWording } from "uask-dom";
 import EditItemButton from "../studio/EditItemButton.vue";
 import DeleteItemButton from "../studio/DeleteItemButton.vue";
 
@@ -178,7 +176,17 @@ export default {
   },
   methods: {
     firstItem(rowIndex) {
-      return getItem(this.content.items[rowIndex].row.find(r => !!r)?.item);
+      const rowWording = this.getLabel(
+        "mlstring",
+        {},
+        this.content.items[rowIndex].wording,
+        this.$i18n
+      );
+      return this.currentPage.items.find(i =>
+        this.getLabel("mlstring", {}, i.wording, this.$i18n).startsWith(
+          rowWording
+        )
+      );
     },
     rowItemCount(rowIndex) {
       return this.content.items[rowIndex].row.filter(r => !!r).length;
@@ -217,8 +225,10 @@ export default {
     onClickLabel(variableName) {
       this.$emit("itemselected", variableName);
     },
-    display(event) {
-      console.log(event);
+    filteredHeaders(item) {
+      return this.headers
+        .slice(1, this.headers.length - 1)
+        .filter(h => !!item[h.value]);
     }
   },
   i18n: {

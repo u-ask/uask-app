@@ -6,7 +6,7 @@
     :plain="label"
     @click="startDeletion()"
     :disabled="pendingStudioModification"
-    :id="`delete-item-button-${item.variableName}`"
+    :id="`delete-item-button-${item ? item.variableName : 'undefined'}`"
   >
     <v-icon v-if="!label">mdi-delete</v-icon>
     <span v-else>{{
